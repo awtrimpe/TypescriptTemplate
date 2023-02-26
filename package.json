@@ -1,0 +1,38 @@
+{
+  "name": "typescript",
+  "version": "1.0.0",
+  "description": "A default Typescript NodeJS application",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "",
+    "precommit-msg": "echo 'Running pre-commit checks...' && exit 0",
+    "formatting-msg": "echo 'Standardizing code formatting...' && exit 0",
+    "lint": "npm run eslint /src/*",
+    "prettier": "npm run prettier --write **.ts",
+    "git-add": "git add .",
+    "build": "tsc",
+		"prestart": "npm run build",
+		"start": "node ."
+  },
+  "pre-commit": [
+    "precommit-msg",
+    "formatting-msg",
+    "prettier",
+    "lint",
+    "git-add"
+  ],
+  "author": "awtrimpe",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.14.1",
+    "@typescript-eslint/eslint-plugin": "^5.53.0",
+    "eslint": "^8.35.0",
+    "eslint-config-standard-with-typescript": "^34.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^15.6.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "pre-commit": "^1.2.2",
+    "prettier": "^2.8.4",
+    "typescript": "^4.9.5"
+  }
+}
